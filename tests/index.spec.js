@@ -13,15 +13,25 @@ let FillFields = async (page) => {
     await page.click('button[type="submit"]');
 }
 
+let Surfing = async (page) => {
+    await page.goto('https://facebook.com/share/p/15euxqxeb8/');
+}
 
 test('Navegate', async ({ page }) => {
+
     await GotoPage(page)
     console.log("In Page")
+
     await FillFields(page)
     console.log("Fields Filled")
+
     await page.waitForTimeout(40000)
     console.log("Just Waiting")
 
+    
+    await page.goto('https://facebook.com/share/p/15euxqxeb8/');
+
+    //Surfing(page)
     await page.waitForTimeout(40000)
 })
 
