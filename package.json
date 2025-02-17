@@ -1,0 +1,23 @@
+{
+  "name": "mpt_auto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.spec.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JSant2007/MPT_Auto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JSant2007/MPT_Auto/issues"
+  },
+  "homepage": "https://github.com/JSant2007/MPT_Auto#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.4",
+    "csv-parser": "^3.2.0"
+  }
+}
