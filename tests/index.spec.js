@@ -18,11 +18,12 @@ let FillFields = async (page) => {
 
 let Surfing = async (page, link, comment) => {
     await page.goto(link);
-    await page.click("div[@aria-label='Escribe un comentario…']/p");
-    await page.type('div[aria-label="Escribe un comentario…"] input', comment);
+    //await page.click("div[@aria-label='Escribe un comentario…']/p");
+    await page.type('//div[@contenteditable="true" and @role="textbox"]', comment);
 
     //await page.fill("form[@role='presentation']", comment);
-    await page.click("//div[@aria-label='comentar']")
+    //await page.click("//div[@aria-label='comentar']")
+    await page.locator('//div[@aria-label="Comentar" and @role="button"]').click();
 }
 
 test('Navegate', async ({ page }) => {
@@ -39,8 +40,7 @@ test('Navegate', async ({ page }) => {
 
     // await page.goto('https://facebook.com/share/p/15euxqxeb8/');
     await Surfing(page, Link, Comment)
-    console('Awesomeeee')
-    //Surfing(page)
+    console.log('Awesomeeee')
     await page.waitForTimeout(30000)
 })
 
