@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.spec.js",
   "scripts": {
-    "test": "playwright test index.spec.js"
+    "test": "playwright test index.spec.js",
+    "csv": "node ./tests/csv-test.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,7 @@
     "@playwright/test": "^1.50.1",
     "@types/node": "^22.13.4",
     "csv-parser": "^3.2.0"
-  }
+  },
+  
+  "type": "module"
 }

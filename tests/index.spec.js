@@ -1,7 +1,26 @@
 import { test, expect } from '@playwright/test';
+import MadeIt from './csv-test.js';
 
-let Link = 'https://facebook.com/share/p/15euxqxeb8/';
-let Comment = "Holaa";
+//! Content
+let users = []
+let pass = []
+let link = []
+let comment = []
+
+
+//! CSV PARSER
+
+let route = './data/Pruebas.csv'
+
+MadeIt(users, pass, link, comment, route)
+console.log(users)
+console.log(pass)
+console.log(link)
+console.log(comment)
+
+
+const Link = 'https://facebook.com/share/p/15euxqxeb8/';
+const Comment = "Holaa";
 
 let GotoPage = async (page) => {
     await page.goto('https://facebook.com/');
@@ -26,6 +45,32 @@ let Surfing = async (page, link, comment) => {
     await page.locator('//div[@aria-label="Comentar" and @role="button"]').click();
 }
 
+
+let Execute = async (page) => {
+    await GotoPage(page)
+    console.log("In Page")
+
+    await FillFields(page)
+    console.log("Fields Filled")
+
+    await page.waitForTimeout(40000)
+    console.log("Just Waiting")
+
+
+    // await page.goto('https://facebook.com/share/p/15euxqxeb8/');
+    await Surfing(page, Link, Comment)
+    console.log('Awesomeeee')
+    await page.waitForTimeout(30000)
+}
+
+test('Navegate', async ({ page }) => {
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        
+    }
+})
+
+/*
 test('Navegate', async ({ page }) => {
 
     await GotoPage(page)
@@ -43,7 +88,7 @@ test('Navegate', async ({ page }) => {
     console.log('Awesomeeee')
     await page.waitForTimeout(30000)
 })
-
+*/
 
 
 
