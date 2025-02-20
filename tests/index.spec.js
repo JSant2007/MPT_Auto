@@ -28,10 +28,6 @@ let MadeIt = (users, pass, link, comment, myRoute) => {
 }
 
 MadeIt(users, pass, link, comment, route)
-console.log(users)
-console.log(pass)
-console.log(link)
-console.log(comment)
 
 
 // const Link = 'https://facebook.com/share/p/15euxqxeb8/';
@@ -96,22 +92,8 @@ test('Navegate', async ({ page }) => {
     await page.waitForTimeout(40000)
     console.log("Just Waiting")
 
-
-    // await page.goto('https://facebook.com/share/p/15euxqxeb8/');
     await Surfing(page, Link, Comment)
     console.log('Awesomeeee')
     await page.waitForTimeout(30000)
 })
 */
-
-
-
-
-// try {
-//     goto();
-
-//     console.log("In Page")
-// }
-// catch(error) {
-//     console.log(error.message);
-// }
