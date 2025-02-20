@@ -15,7 +15,7 @@ export default defineConfig({
   reporter: 'html',
 
   /* Aumenta el timeout global a 120 segundos (120000 ms) para todas las pruebas */
-  timeout: 120000, // 120 segundos (120000 ms)
+  timeout: 160000, // 160 segundos (120000 ms)
 
   /* Shared settings for all the projects below. */
   use: {

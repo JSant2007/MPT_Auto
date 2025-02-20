@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
-import MadeIt from './csv-test.js';
+import csv from 'csv-parser';
+import fs from 'fs';
 
 //! Content
 let users = []
@@ -11,6 +12,20 @@ let comment = []
 //! CSV PARSER
 
 let route = './data/Pruebas.csv'
+
+let MadeIt = (users, pass, link, comment, myRoute) => {
+    fs.createReadStream(myRoute) // Lee el archivo CSV
+  .pipe(csv()) // Pasa el flujo al parser CSV
+  .on('data', (row) => {
+    users.push(row.users);
+    pass.push(row.pass);
+    link.push(row.link);
+    comment.push(row.comment);
+  })
+  .on('end', () => {
+    console.log('Archivo CSV procesado con éxito');
+  });
+}
 
 MadeIt(users, pass, link, comment, route)
 console.log(users)
@@ -46,9 +61,9 @@ let Surfing = async (page, linkInput, commentInput) => {
 }
 
 
-test('Navegate', async ({ page }) => {
-    for (const [i, user] of users.array) { 
-        const page = await browser.newPage(); 
+test('Navegate', async ({ context }) => {
+    for (const [i, user] of users.entries()) { 
+        const page = await context.newPage(); 
         await GotoPage(page);
         console.log("In Page");
 
@@ -64,6 +79,8 @@ test('Navegate', async ({ page }) => {
 
         await page.waitForTimeout(20000);
         await page.close();
+
+        await context.clearCookies();
     }
 })
 

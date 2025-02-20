@@ -9,7 +9,7 @@ let Tpass = []
 let Tlink = []
 let Tcomment = []
 */
-
+/*
 let MadeIt = (users, pass, link, comment, myRoute) => {
     fs.createReadStream(myRoute) // Lee el archivo CSV
   .pipe(csv()) // Pasa el flujo al parser CSV
@@ -23,5 +23,5 @@ let MadeIt = (users, pass, link, comment, myRoute) => {
     console.log('Archivo CSV procesado con éxito');
   });
 }
-
-module.exports = { MadeIt}
+*/
+//module.exports = { MadeIt}
