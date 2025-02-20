@@ -29,8 +29,8 @@ let GotoPage = async (page) => {
     await expect(page.locator('input[name="pass"]')).toBeVisible();
 }
 
-let FillFields = async (page, emailInput, passInput) => {
-    await page.fill('input[name="email"]', emailInput);
+let FillFields = async (page, userlInput, passInput) => {
+    await page.fill('input[name="email"]', userlInput);
     await page.fill('input[name="pass"]', passInput);
     await page.click('button[type="submit"]');
 }
@@ -46,27 +46,24 @@ let Surfing = async (page, linkInput, commentInput) => {
 }
 
 
-let Execute = async (page, email, pass, link, comment) => {
-    await GotoPage(page)
-    console.log("In Page")
-
-    await FillFields(page)
-    console.log("Fields Filled")
-
-    await page.waitForTimeout(40000)
-    console.log("Just Waiting")
-
-
-    // await page.goto('https://facebook.com/share/p/15euxqxeb8/');
-    await Surfing(page, Link, Comment)
-    console.log('Awesomeeee')
-    await page.waitForTimeout(30000)
-}
-
 test('Navegate', async ({ page }) => {
-    for (let content in contents``) {
-        
-        
+    for (const [i, user] of users.array) { 
+        const page = await browser.newPage(); 
+        await GotoPage(page);
+        console.log("In Page");
+
+        await FillFields(page, user, pass[i]);
+        console.log("Fields Filled");
+
+        await page.waitForTimeout(20000);
+        console.log("Just Waiting");
+
+        // await page.goto('https://facebook.com/share/p/15euxqxeb8/');
+        await Surfing(page, link[i], comment[i]);
+        console.log('Awesomeeee');
+
+        await page.waitForTimeout(20000);
+        await page.close();
     }
 })
 
