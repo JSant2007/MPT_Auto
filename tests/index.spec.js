@@ -19,8 +19,8 @@ console.log(link)
 console.log(comment)
 
 
-const Link = 'https://facebook.com/share/p/15euxqxeb8/';
-const Comment = "Holaa";
+// const Link = 'https://facebook.com/share/p/15euxqxeb8/';
+// const Comment = "Holaa";
 
 let GotoPage = async (page) => {
     await page.goto('https://facebook.com/');
@@ -29,16 +29,16 @@ let GotoPage = async (page) => {
     await expect(page.locator('input[name="pass"]')).toBeVisible();
 }
 
-let FillFields = async (page) => {
-    await page.fill('input[name="email"]', 'enquetepuedoayudar12@gmail.com');
-    await page.fill('input[name="pass"]', 'vapeador12');
+let FillFields = async (page, emailInput, passInput) => {
+    await page.fill('input[name="email"]', emailInput);
+    await page.fill('input[name="pass"]', passInput);
     await page.click('button[type="submit"]');
 }
 
-let Surfing = async (page, link, comment) => {
-    await page.goto(link);
+let Surfing = async (page, linkInput, commentInput) => {
+    await page.goto(linkInput);
     //await page.click("div[@aria-label='Escribe un comentario…']/p");
-    await page.type('//div[@contenteditable="true" and @role="textbox"]', comment);
+    await page.type('//div[@contenteditable="true" and @role="textbox"]', commentInput);
 
     //await page.fill("form[@role='presentation']", comment);
     //await page.click("//div[@aria-label='comentar']")
@@ -46,7 +46,7 @@ let Surfing = async (page, link, comment) => {
 }
 
 
-let Execute = async (page) => {
+let Execute = async (page, email, pass, link, comment) => {
     await GotoPage(page)
     console.log("In Page")
 
@@ -64,8 +64,8 @@ let Execute = async (page) => {
 }
 
 test('Navegate', async ({ page }) => {
-    for (let i = 0; i < array.length; i++) {
-        const element = array[i];
+    for (let content in contents``) {
+        
         
     }
 })
