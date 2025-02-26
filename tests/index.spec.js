@@ -5,20 +5,32 @@ import fs from 'fs';
 //! Content
 let users = []
 let pass = []
+
 let link = []
 let comment = []
 
 
 //! CSV PARSER
 
-let route = './data/Pruebas.csv'
+let route1 = './data/Pruebas.csv'
+let route2 = './data/Pruebas2.csv'
 
-let MadeIt = (users, pass, link, comment, myRoute) => {
+let MadeIt = (users, pass, myRoute) => {
     fs.createReadStream(myRoute) // Lee el archivo CSV
   .pipe(csv()) // Pasa el flujo al parser CSV
   .on('data', (row) => {
     users.push(row.users);
     pass.push(row.pass);
+  })
+  .on('end', () => {
+    console.log('Archivo CSV procesado con éxito');
+  });
+}
+
+let MadeIt2 = (link, comment, myRoute) => {
+    fs.createReadStream(myRoute) // Lee el archivo CSV
+  .pipe(csv()) // Pasa el flujo al parser CSV
+  .on('data', (row) => {
     link.push(row.link);
     comment.push(row.comment);
   })
@@ -27,8 +39,8 @@ let MadeIt = (users, pass, link, comment, myRoute) => {
   });
 }
 
-MadeIt(users, pass, link, comment, route)
-
+MadeIt(users, pass, route)
+MadeIt2(link, comment, route2)
 
 // const Link = 'https://facebook.com/share/p/15euxqxeb8/';
 // const Comment = "Holaa";
