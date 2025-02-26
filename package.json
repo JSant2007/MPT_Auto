@@ -20,6 +20,9 @@
     "@types/node": "^22.13.4",
     "csv-parser": "^3.2.0"
   },
-  
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "openai": "^4.85.4"
+  }
 }
