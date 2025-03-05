@@ -11,7 +11,7 @@ const postContent = 'dame una frase prometedora';
 const baseUrl = 'https://openrouter.ai/api/v1';
 
 // Realizar la solicitud para crear el chat
-async function getChatResponse(postContent) {
+export async function getChatResponse(postContent) {
   try {
     // Realizar una solicitud POST a la API
     const response = await axios.post(
@@ -39,6 +39,3 @@ async function getChatResponse(postContent) {
     console.error("Error al realizar la solicitud:", error);
   }
 }
-
-// Llamar a la función con el contenido del post
-getChatResponse(postContent);

@@ -12,7 +12,7 @@ let comment = []
 
 //! CSV PARSER
 
-let route1 = './data/Pruebas.csv'
+let route1 = './data/Users.csv'
 let route2 = './data/Pruebas2.csv'
 
 let MadeIt = (users, pass, myRoute) => {
@@ -69,7 +69,8 @@ let Surfing = async (page, linkInput, commentInput) => {
 }
 
 let CopyPost = async (page) => {
-    '//div[@data-ad-comet-preview="message"]//span[@dir="auto"]'
+    //'//div[@data-ad-comet-preview="message"]//span[@dir="auto"]'
+    // await page.innerText('//div[@data-ad-comet-preview="message"]//span[@dir="auto"]');
     await page.click('div[aria-label="Compartir"]');
 }
 

@@ -1,5 +1,8 @@
-personality,prompt
-1,abc
-2,def
-3,ghi
-4,jkl
+personality,name,prompt
+1,apoyo fuerte,"Expresa un fuerte apoyo a la idea y explica por qué es beneficiosa en dos líneas."
+2,apoyo moderado,"Muestra apoyo a la idea, pero con algunas reservas, explicando brevemente en dos líneas."
+3,apoyo suave,"Indica un apoyo leve a la idea, mencionando un aspecto positivo en dos líneas."
+4,neutral,"Presenta una opinión neutral sobre la idea, describiendo ambos lados en dos líneas."
+5,critico suave,"Menciona una crítica leve a la idea, destacando un punto negativo en dos líneas."
+6,critico moderado,"Expresa una crítica moderada a la idea, explicando tus preocupaciones en dos líneas."
+7,critico fuerte,"Realiza una crítica fuerte a la idea, argumentando en contra en dos líneas."

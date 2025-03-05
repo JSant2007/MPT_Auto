@@ -6,7 +6,8 @@
   "scripts": {
     "test": "playwright test index.spec.js",
     "csv": "node ./tests/csv-test.js",
-    "ia": "node ./tests/deepseek.js"
+    "ia": "node ./tests/deepseek.js",
+    "ex": "node ./tests/extract.spec.js"
   },
   "repository": {
     "type": "git",
