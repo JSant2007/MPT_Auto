@@ -68,6 +68,11 @@ let Surfing = async (page, linkInput, commentInput) => {
     await page.locator('//div[@aria-label="Comentar" and @role="button"]').click();
 }
 
+let CopyPost = async (page) => {
+    '//div[@data-ad-comet-preview="message"]//span[@dir="auto"]'
+    await page.click('div[aria-label="Compartir"]');
+}
+
 
 test('Navegate', async ({ context }) => {
     for (const [i, user] of users.entries()) { 
