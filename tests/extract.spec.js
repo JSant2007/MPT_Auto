@@ -22,7 +22,6 @@ resolve();
       .on('error', reject);
     });
 }
-    
 
 let link = 'https://www.facebook.com/MunicipalidadProvincialDeTacna/posts/pfbid02LxvwczBMsasxBABvjQvpLQRL9ByE2Qbjs4Jd3PtoQLL5R6AN9BQwBZu6erLwi7Tul';
 
@@ -54,11 +53,8 @@ const CopyPostText = async (page) => {
 
     for (let i = 0; i < prompts.length; i++) {
     const response = await getChatResponse('solo dame la respuesta sin mas de ' + prompts[i] + ' leyendo el post ' + postText);
-if (response) {
-      console.log(i.toString() + ": " + response);
-    } else {
-      console.log(i.toString() + ": No response received");
-    }    
+    
+    console.log(response);
     }
 
     await page.close();

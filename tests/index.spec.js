@@ -68,10 +68,9 @@ let Surfing = async (page, linkInput, commentInput) => {
     await page.locator('//div[@aria-label="Comentar" and @role="button"]').click();
 }
 
-let CopyPost = async (page) => {
-    //'//div[@data-ad-comet-preview="message"]//span[@dir="auto"]'
-    // await page.innerText('//div[@data-ad-comet-preview="message"]//span[@dir="auto"]');
-    await page.click('div[aria-label="Compartir"]');
+let CopyPostText = async (page) => {
+  const postText = await page.innerText('//div[@data-ad-comet-preview="message"]//span[@dir="auto"]');
+  return postText;
 }
 
 
@@ -95,6 +94,8 @@ test('Navegate', async ({ context }) => {
         await page.close();
 
         await context.clearCookies();
+
+
     }
 })
 

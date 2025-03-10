@@ -7,7 +7,7 @@ dotenv.config();
 const apiKey = process.env.API_KEY
 
 // El contenido del post que deseas analizar
-const postContent = 'dame una frase prometedora';
+const postContent = 'solo dime una frase prometedora';
 const baseUrl = 'https://openrouter.ai/api/v1';
 
 // Realizar la solicitud para crear el chat
@@ -34,7 +34,8 @@ export async function getChatResponse(postContent) {
     );
 
     // Mostrar la respuesta de la API
-    console.log("Respuesta:", response.data.choices[0].message.content);
+    let res = response.data.choices[0].message.content;
+    return res;
   } catch (error) {
     console.error("Error al realizar la solicitud:", error);
   }
