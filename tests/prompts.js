@@ -6,8 +6,9 @@ let page = readlineSync.question(`1: MPT \n2: GORE\n3: R1\n`)
 
 let postContent = fs.readFileSync('./data/post.txt', 'utf8');
 
-const CommentPerPersonality = [];
+let postContext = fs.readFileSync('./data/context.txt', 'utf8');
 
+const CommentPerPersonality = [];
 for (let i = 1; i <= 7; i++) {
     const personality = readlineSync.question(`Ingrese el numero de comentarios para la personalidad ${i}: `);
 
@@ -28,9 +29,8 @@ Personalidad 5: ${CommentPerPersonality[4]}
 Personalidad 6: ${CommentPerPersonality[5]}
 Personalidad 7: ${CommentPerPersonality[6]}
 
-Cada comentario debe parecer emitido por una persona distinta en rangos de edad desde los 18 a los 60 años y de géneros variados, por lo que debes variar la forma de escribir, la personalidad de la persona que escribe, la ortografía, no debe de usar emojis ni hashtags. Las personalidades 5, 6 y 7, deben ser un poco más agresivas, siendo la 7 incluso ofensiva a veces. Dame solamente los comentarios, uno por cada línea y ten en cuenta el contexto.
-
-Contexto: 
+Cada comentario debe parecer emitido por una persona distinta en rangos de edad desde los 18 a los 60 años y de géneros variados, por lo que debes variar la forma de escribir, la personalidad de la persona que escribe, la ortografía, no debe de usar emojis ni hashtags. Las personalidades 5, 6 y 7, deben ser un poco más agresivas, siendo la 7 incluso ofensiva a veces. Dame solamente los comentarios, uno por cada línea y ten en cuenta el contexto. Cada comentario debe estar en una linea aparte y no debe mencionarse de que personalidad es.
+Contexto: ${postContext}
 
 Publicación: ${postContent}`
 } else if (page == 2) {
@@ -44,9 +44,8 @@ Personalidad 5: ${CommentPerPersonality[4]}
 Personalidad 6: ${CommentPerPersonality[5]}
 Personalidad 7: ${CommentPerPersonality[6]}
 
-Cada comentario debe parecer emitido por una persona distinta en rangos de edad desde los 18 a los 60 años y de géneros variados, por lo que debes variar la forma de escribir, la personalidad de la persona que escribe, la ortografía, no debe de usar emojis ni hashtags. Las personalidades 5, 6 y 7, deben ser un poco más agresivas, siendo la 7 incluso ofensiva a veces. Dame solamente los comentarios, uno por cada línea y ten en cuenta el contexto.
-
-Contexto: 
+Cada comentario debe parecer emitido por una persona distinta en rangos de edad desde los 18 a los 60 años y de géneros variados, por lo que debes variar la forma de escribir, la personalidad de la persona que escribe, la ortografía, no debe de usar emojis ni hashtags. Las personalidades 5, 6 y 7, deben ser un poco más agresivas, siendo la 7 incluso ofensiva a veces. Dame solamente los comentarios, uno por cada línea y ten en cuenta el contexto. Cada comentario debe estar en una linea aparte y no debe mencionarse de que personalidad es.
+Contexto: ${postContext}
 
 Publicación: ${postContent}
     `
@@ -61,9 +60,9 @@ Personalidad 5: ${CommentPerPersonality[4]}
 Personalidad 6: ${CommentPerPersonality[5]}
 Personalidad 7: ${CommentPerPersonality[6]}
 
-Cada comentario debe parecer emitido por una persona distinta en rangos de edad desde los 18 a los 60 años y de géneros variados, por lo que debes variar la forma de escribir, la personalidad de la persona que escribe, la ortografía, no debe de usar emojis ni hashtags. Las personalidades 5, 6 y 7, deben ser un poco más agresivas, siendo la 7 incluso ofensiva a veces. Dame solamente los comentarios, uno por cada línea y ten en cuenta el contexto.
+Cada comentario debe parecer emitido por una persona distinta en rangos de edad desde los 18 a los 60 años y de géneros variados, por lo que debes variar la forma de escribir, la personalidad de la persona que escribe, la ortografía, no debe de usar emojis ni hashtags. Las personalidades 5, 6 y 7, deben ser un poco más agresivas, siendo la 7 incluso ofensiva a veces. Dame solamente los comentarios, uno por cada línea y ten en cuenta el contexto. Cada comentario debe estar en una linea aparte y no debe mencionarse de que personalidad es.
 
-Contexto: 
+Contexto: ${postContext}
 
 Publicación: ${postContent}
 `
@@ -71,3 +70,5 @@ Publicación: ${postContent}
 
 const res = await getChatResponse(page);
 console.log(res);
+fs.writeFileSync('./data/res.txt', res);
+console.log("Comentarios generados y guardados en res.txt");
